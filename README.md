@@ -2,8 +2,6 @@
 Clean Code JavaScript
 
 ## Introduction
-
-
 ![Humorous image of software quality estimation as a count of how many expletives
 you shout when reading code](https://i.ytimg.com/vi/Fevz-Kb4bxc/maxresdefault.jpg)
 
@@ -23,7 +21,7 @@ const yyyymmdstr = moment().format("YYYY/MM/DD");
 const currentDate = moment().format("YYYY/MM/DD");
 ```
 
-**[⬆ back to top](#table-of-contents)**
+
 
 ### Use the same vocabulary for the same type of variable
 
@@ -41,7 +39,7 @@ getCustomerRecord();
 getUser();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+
 
 ### Use searchable names
 
@@ -63,7 +61,7 @@ setTimeout(blastOff, 86400000);
 const MILLISECONDS_PER_DAY = 60 * 60 * 24 * 1000; //86400000;
 setTimeout(blastOff, MILLISECONDS_PER_DAY);
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Use explanatory variables
 **Bad:**
 ```javascript
@@ -81,7 +79,7 @@ const cityZipCodeRegex = /^[^,\\]+[,\\\s]+(.+?)\s*(\d{5})?$/;
 const [_, city, zipCode] = address.match(cityZipCodeRegex) || [];
 saveCityZipCode(city, zipCode);
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Avoid Mental Mapping
 Explicit is better than implicit.
 **Bad:**
@@ -109,7 +107,7 @@ locations.forEach(location => {
   dispatch(location);
 });
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Don't add unneeded context
 
 If your class/object name tells you something, don't repeat that in your
@@ -136,7 +134,7 @@ function paintCar(car, color) {
   car.color = color;
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Use default parameters instead of short circuiting or conditionals
 Default parameters are often cleaner than short circuiting. Be aware that if you
 use them, your function will only provide default values for `undefined`
@@ -155,7 +153,7 @@ function createMicrobrewery(name = "Hipster Brew Co.") {
   // ...
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ## **Functions**
 ### Function arguments (2 or fewer ideally)
 Limiting the amount of function parameters is incredibly important because it
@@ -203,7 +201,7 @@ createMenu({
   cancellable: true
 });
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Functions should do one thing
 This is by far the most important rule in software engineering. When functions
 do more than one thing, they are harder to compose, test, and reason about.
@@ -236,7 +234,7 @@ function isActiveClient(client) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+
 
 ### Function names should say what they do
 
@@ -261,7 +259,7 @@ const date = new Date();
 addMonthToDate(1, date);
 ```
 
-**[⬆ back to top](#table-of-contents)**
+
 
 ### Functions should only be one level of abstraction
 
@@ -325,7 +323,7 @@ function parse(tokens) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+
 
 ### Remove duplicate code
 
@@ -399,7 +397,7 @@ function showEmployeeList(employees) {
   });
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Set default objects with Object.assign
 **Bad:**
 ```javascript
@@ -442,7 +440,7 @@ function createMenu(config) {
 }
 createMenu(menuConfig);
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Don't use flags as function parameters
 
 Flags tell your user that this function does more than one thing. Functions should do one thing. Split out your functions if they are following different code paths based on a boolean.
@@ -470,7 +468,7 @@ function createTempFile(name) {
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+
 
 ### Avoid Side Effects (part 1)
 
@@ -513,7 +511,7 @@ const newName = splitIntoFirstAndLastName(name);
 console.log(name); // 'Ryan McDermott';
 console.log(newName); // ['Ryan', 'McDermott'];
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Avoid Side Effects (part 2)
 In JavaScript, some values are unchangeable (immutable) and some are changeable 
 (mutable). Objects and arrays are two kinds of mutable values so it's important 
@@ -556,7 +554,7 @@ const addItemToCart = (cart, item) => {
   return [...cart, { item, date: Date.now() }];
 };
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Don't write to global functions
 Polluting globals is a bad practice in JavaScript because you could clash with another
 library and the user of your API would be none-the-wiser until they get an
@@ -583,7 +581,7 @@ class SuperArray extends Array {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Favor functional programming over imperative programming
 JavaScript isn't a functional language in the way that Haskell is, but it has
 a functional flavor to it. Functional languages can be cleaner and easier to test.
@@ -641,7 +639,7 @@ const totalOutput = programmerOutput.reduce(
   0
 );
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Encapsulate conditionals
 **Bad:**
 ```javascript
@@ -659,7 +657,7 @@ if (shouldShowSpinner(fsmInstance, listNodeInstance)) {
   // ...
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Avoid negative conditionals
 **Bad:**
 ```javascript
@@ -681,7 +679,7 @@ if (isDOMNodePresent(node)) {
   // ...
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Avoid conditionals
 This seems like an impossible task. Upon first hearing this, most people say,
 "how am I supposed to do anything without an `if` statement?" The answer is that
@@ -734,7 +732,7 @@ class Cessna extends Airplane {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Avoid type-checking (part 1)
 JavaScript is untyped, which means your functions can take any type of argument.
 Sometimes you are bitten by this freedom and it becomes tempting to do
@@ -756,7 +754,7 @@ function travelToTexas(vehicle) {
   vehicle.move(this.currentLocation, new Location("texas"));
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Avoid type-checking (part 2)
 If you are working with basic primitive values like strings and integers,
 and you can't use polymorphism but you still feel the need to type-check,
@@ -786,7 +784,7 @@ function combine(val1, val2) {
   return val1 + val2;
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Don't over-optimize
 Modern browsers do a lot of optimization under-the-hood at runtime. A lot of
 times, if you are optimizing then you are just wasting your time. [There are good
@@ -807,7 +805,7 @@ for (let i = 0; i < list.length; i++) {
   // ...
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Remove dead code
 Dead code is just as bad as duplicate code. There's no reason to keep it in
 your codebase. If it's not being called, get rid of it! It will still be safe
@@ -834,7 +832,7 @@ function newRequestModule(url) {
 const req = newRequestModule;
 inventoryTracker("apples", req, "www.inventory-awesome.io");
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ## **Objects and Data Structures**
 ### Use getters and setters
 Using getters and setters to access data on objects could be better than simply
@@ -888,7 +886,7 @@ function makeBankAccount() {
 const account = makeBankAccount();
 account.setBalance(100);
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Make objects have private members
 This can be accomplished through closures (for ES5 and below).
 **Bad:**
@@ -921,7 +919,7 @@ console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
 delete employee.name;
 console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ## **Classes**
 ### Prefer ES2015/ES6 classes over ES5 plain functions
 It's very difficult to get readable class inheritance, construction, and method
@@ -1000,7 +998,7 @@ class Human extends Mammal {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Use method chaining
 This pattern is very useful in JavaScript and you see it in many libraries such
 as jQuery and Lodash. It allows your code to be expressive, and less verbose.
@@ -1073,7 +1071,7 @@ class Car {
 
 const car = new Car("Ford", "F-150", "red").setColor("pink").save();
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Prefer composition over inheritance
 As stated famously in [_Design Patterns_](https://en.wikipedia.org/wiki/Design_Patterns) by the Gang of Four,
 you should prefer composition over inheritance where you can. There are lots of
@@ -1134,7 +1132,7 @@ class Employee {
   // ...
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ## **SOLID**
 ### Single Responsibility Principle (SRP)
 As stated in Clean Code, "There should never be more than one reason for a class
@@ -1188,7 +1186,7 @@ class UserSettings {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Open/Closed Principle (OCP)
 As stated by Bertrand Meyer, "software entities (classes, modules, functions,
 etc.) should be open for extension, but closed for modification." What does that
@@ -1272,7 +1270,7 @@ class HttpRequester {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Liskov Substitution Principle (LSP)
 This is a scary term for a very simple concept. It's formally defined as "If S
 is a subtype of T, then objects of type T may be replaced with objects of type S
@@ -1383,7 +1381,7 @@ function renderLargeShapes(shapes) {
 const shapes = [new Rectangle(4, 5), new Rectangle(4, 5), new Square(5)];
 renderLargeShapes(shapes);
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Interface Segregation Principle (ISP)
 JavaScript doesn't have interfaces so this principle doesn't apply as strictly
 as others. However, it's important and relevant even with JavaScript's lack of
@@ -1452,7 +1450,7 @@ const $ = new DOMTraverser({
   }
 });
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Dependency Inversion Principle (DIP)
 This principle states two essential things:
 1. High-level modules should not depend on low-level modules. Both should
@@ -1545,7 +1543,7 @@ const inventoryTracker = new InventoryTracker(
 );
 inventoryTracker.requestItems();
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ## **Testing**
 Testing is more important than shipping. If you have no tests or an
 inadequate amount, then every time you ship code you won't be sure that you
@@ -1607,7 +1605,7 @@ describe("MomentJS", () => {
   });
 });
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ## **Concurrency**
 ### Use Promises, not callbacks
 Callbacks aren't clean, and they cause excessive amounts of nesting. With ES2015/ES6,
@@ -1650,7 +1648,7 @@ get("https://en.wikipedia.org/wiki/Robert_Cecil_Martin")
     console.error(err);
   });
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Async/Await are even cleaner than Promises
 Promises are a very clean alternative to callbacks, but ES2017/ES8 brings async and await
 which offer an even cleaner solution. All you need is a function that is prefixed
@@ -1692,7 +1690,7 @@ async function getCleanCodeArticle() {
 
 getCleanCodeArticle()
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ## **Error Handling**
 Thrown errors are a good thing! They mean the runtime has successfully
 identified when something in your program has gone wrong and it's letting
@@ -1756,7 +1754,7 @@ getdata()
     // OR do all three!
   });
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ## **Formatting**
 Formatting is subjective. Like many rules herein, there is no hard and fast
 rule that you must follow. The main point is DO NOT ARGUE over formatting.
@@ -1797,7 +1795,7 @@ function restoreDatabase() {}
 class Animal {}
 class Alpaca {}
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Function callers and callees should be close
 If a function calls another, keep those functions vertically close in the source
 file. Ideally, keep the caller right above the callee. We tend to read code from
@@ -1878,7 +1876,7 @@ class PerformanceReview {
 const review = new PerformanceReview(employee);
 review.perfReview();
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ## **Comments**
 ### Only comment things that have business logic complexity.
 Comments are an apology, not a requirement. Good code _mostly_ documents itself.
@@ -1917,7 +1915,7 @@ function hashIt(data) {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Don't leave commented out code in your codebase
 Version control exists for a reason. Leave old code in your history.
 **Bad:**
@@ -1931,7 +1929,7 @@ doStuff();
 ```javascript
 doStuff();
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Don't have journal comments
 Remember, use version control! There's no need for dead code, commented code,
 and especially journal comments. Use `git log` to get history!
@@ -1953,7 +1951,7 @@ function combine(a, b) {
   return a + b;
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+
 ### Avoid positional markers
 They usually just add noise. Let the functions and variable names along with the
 proper indentation and formatting give the visual structure to your code.
